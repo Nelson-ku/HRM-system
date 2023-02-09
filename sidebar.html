@@ -1,0 +1,81 @@
+
+<nav class="sidebar sidebar-offcanvas bg-dark" id="sidebar" >
+        <ul class="nav">
+          <li class="nav-item nav-profile">
+            <div class="nav-link">
+              <div class="user-wrapper">
+                <div class="profile-image">
+                </div>
+                <div class="text-wrapper">
+                    <i class="fas  fa-avatar text-light"></i>
+                  <p class="profile-name">{{user.username | upper}} </p>
+                  <div>
+                    <small class="designation text-muted">Employee</small>
+                    <span class="status-indicator online"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas  fa-dashboard text-light"></i>
+              <span class="menu-title text-light">&emsp;Dashboard</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_settings' %}">
+              <i class="fa fa-user text-light"></i>
+              <span class="menu-title text-light">&emsp;account settings</span>
+            </a>
+          </li>
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="">-->
+<!--              <i class="fa fa-door-open text-light"></i>-->
+<!--              <span class="menu-title text-light">&emsp;Request Leave</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="#">-->
+<!--              <i class="fa fa-door-closed text-light"></i>-->
+<!--              <span class="menu-title text-light">&emsp;view Leaves</span>-->
+<!--            </a>-->
+<!--          </li>-->
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'work_request' %}">
+              <i class="fa fa-door-open text-light"></i>
+              <span class="menu-title text-light">&emsp; Request Task review</span>
+            </a>
+          </li>
+
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="#">-->
+<!--              <i class="fa fa-database text-light"></i>-->
+<!--              <span class="menu-title text-light">&emsp;view leaves allocated</span>-->
+<!--            </a>-->
+<!--          </li>-->
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'userpay' %}">
+              <i class="fa fa-wallet text-light"></i>
+              <span class="menu-title text-light">&emsp;view Salary</span>
+            </a>
+          </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'userAsset' %}">
+              <i class="fa fa-book text-light"></i>
+              <span class="menu-title text-light">&emsp;Allocated assets</span>
+            </a>
+          </li>
+
+          {% comment %} <li class="nav-item">
+
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="pages/icons/font-awesome.html">-->
+<!--              <i class="fa  fa-gears text-light"></i>-->
+<!--              <span class="menu-title text-light">&emsp;Settings</span>-->
+<!--            </a>-->
+          </li> {% endcomment %}
+        </ul>
+      </nav>

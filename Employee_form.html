@@ -1,0 +1,248 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Creation Form</title>
+  <link rel="stylesheet" href="{% static './css/main.css'%}">
+
+  <!-- Custom fonts for this template-->
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+
+  <!-- Page level plugin CSS-->
+  <link href="{% static 'vendor/datatables/dataTables.bootstrap4.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="{% static 'css/sb-admin.css' %}" rel="stylesheet">
+
+  <!-- bootstrap css -->
+  <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+</head>
+<body>
+
+<nav class="navbar fixed-top navbar-light bg-light">
+  <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'index' %}"><h4>Dashboard</h4></a>
+  </div>
+</nav>
+<br>
+<br>
+<hr>
+
+
+<!--<style>
+    .input-group-text {
+			background: #f7ba5b !important;
+			color: white !important;
+			border: 0 !important;
+			border-radius: 0.25rem 0 0 0.25rem !important;
+		}
+		.input_user,
+		.input_pass:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+</style>-->
+
+<div class="card-body">
+	<div class="card-header">
+  <h1 class="" >Fill in Employee details</h1>
+</div>
+
+<br>
+<br>
+
+              <form method="POST" action="" enctype="multipart/form-data">
+                        {% csrf_token %}
+				  <div class="">
+						<div class="input-group col-sm-4 mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><label >platform Registration Name</label></span>
+							</div>
+							 {{form.customer}}
+						</div>
+				  </div>
+
+                   <div class="d-flex justify-content-center">
+						<div class="input-group col-sm-4 mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><label >First Name</label></span>
+							</div>
+							 {{form.first_name}}
+						</div>
+						<div class="input-group col-sm-4 mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><label>Middle Name</label></span>
+							</div>
+                            {{form.middle_name}}
+						</div>
+						<div class="input-group col-sm-4 mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><label>Last Name</label></i></span>
+							</div>
+                            {{form.last_name}}
+						</div>
+                   </div>
+				  <br>
+				  <br>
+
+
+			      <div class="d-flex justify-content-center">
+						<div class="input-group col-sm-4 mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><label >Home Address</label></span>
+							</div>
+							 {{form.home_address}}
+						</div>
+						<div class="input-group col-sm-4 mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><label>Marital Status</label></span>
+							</div>
+                            {{form.marital_status}}
+						</div>
+						<div class="input-group col-sm-4 mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><label>Next Of Kin</label></i></span>
+							</div>
+                            {{form.next_of_kin}}
+						</div>
+                   </div>
+				  <br>
+                      <div class="d-flex ">
+                          <div class="input-group col-md-4 mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><label>gender</label></span>
+							</div>
+							{{form.gender}}
+						</div>
+
+                        <div class="input-group col-md-4 mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><label>Citizenship</label></span>
+							</div>
+							{{form.citizenship}}
+						</div>
+                        <div class="input-group col-md-4 mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><label>contact</label></span>
+							</div>
+							{{form.contact}}
+						</div>
+                      </div>
+				  <br>
+				  <br>
+
+                     <div class="d-flex justify-content-center">
+
+                        <div class="input-group col-md-4 mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><label>email</label></span>
+							</div>
+							{{form.email}}
+						</div>
+                        <div class="input-group col-md-4 mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><label>national_id</label></span>
+							</div>
+							{{form.contact}}
+						</div>
+                        <div class="input-group col-md-4 mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><label>department</label></span>
+							</div>
+							{{form.department}}
+						</div>
+                     </div>
+				  <br>
+				  <br>
+                     <div class="d-flex justify-content-center">
+                          <div class="input-group col-md-4 mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><label>D.O.B</label></span>
+							</div>
+							{{form.date_of_birth}}
+						</div>
+						  <div class="input-group col-md-4 mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><label>Joining Date</label></span>
+							</div>
+							{{form.joining_date}}
+						</div>
+						  <div class="input-group col-md-4 mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><label>Termination Date</label></span>
+							</div>
+							{{form.termination_date}}
+						</div>
+
+					 </div>
+				  <div class="">
+					  <h2 class="card-header">Financial Information</h2>
+						 <hr>
+				  	  <div class="d-flex">
+
+					  <div class="input-group col-md-4 mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><label>Salary in USD</label></span>
+							</div>
+							{{form.salary}}
+						</div>
+					  <div class="input-group col-md-4 mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><label>NHIF in USD</label></span>
+							</div>
+							{{form.NHIF}}
+						</div>
+					  <div class="input-group col-md-4 mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><label>NSSF in USD</label></span>
+							</div>
+							{{form.NSSF}}
+						</div>
+				  </div>
+
+				  </div>
+				  <br>
+				  <br>
+				  <br>
+{{employees}}
+
+				  <br>
+				  <br>
+						 <h2 class="card-header">Academic Information</h2>
+						 <hr>
+						 <div class="d-flex justify-content-center">
+                        <div class="input-group col-md-4 mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><label>Academic Level</label></span>
+							</div>
+							{{form.academic_level}}
+						</div>
+							   <div class="input-group col-md-4 mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><label>Upload the CV</label></span>
+							</div>
+							{{form.upload1}}
+						</div>
+							   <div class="input-group col-md-4 mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><label>Upload Academic Documents</label></span>
+							</div>
+							{{form.upload}}
+						</div>
+						 </div>
+
+
+				   		<div class="d-flex justify-content-center mt-3 login_container">
+				 			<input class="btn btn-primary" type="submit" value="SUBMIT">
+				   		</div>
+					</form>
+
+        {{form.errors}}
+</div>
+
+
+</body>
+</html>

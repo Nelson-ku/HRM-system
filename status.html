@@ -1,0 +1,161 @@
+
+
+  {% block content%}
+
+  <hr>
+  <h2 class="card-title">Daily Work statistics</h2>
+  <div class="row ">
+
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 grid-margin stretch-card bg-info">
+              <a href="{% url 'rejected_tasks' %}">
+              <div class="card card-statistics">
+                <div class="card-body">
+                  <div class="clearfix">
+                    <div class="float-left">
+                      <i class="fas fa-chart-area fa-2x"></i>
+                    </div>
+                    <div class="float-right">
+                      <p class="mb-0 text-right">Rejected </p>
+                      <div class="fluid-container">
+                        <h3 class="font-weight-medium text-right mb-0">{{rejected_tasks}}</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text-muted mt-3 mb-0">
+                    <i class="mdi mdi-bookmark-outline mr-1" aria-hidden="true"></i> poorly done work
+                  </p>
+                </div>
+              </div>
+              </a>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 grid-margin stretch-card bg-info">
+              <a href="{% url 'completed_tasks' %}">
+              <div class="card card-statistics">
+                <div class="card-body">
+                  <div class="clearfix">
+                    <div class="float-left">
+                      <i class="fas fa-project-diagram fa-2x "></i>
+                    </div>
+                    <div class="float-right">
+                      <p class="mb-0 text-right">Completed work</p>
+                      <div class="fluid-container">
+                        <h3 class="font-weight-medium text-right mb-0">{{completed_tasks}}</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text-muted mt-3 mb-0">
+                    <i class="mdi mdi-calendar mr-1" aria-hidden="true"></i> work well completed
+                  </p>
+                </div>
+              </div>
+              </a>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 grid-margin stretch-card bg-info ">
+              <a href="{% url 'pending_tasks' %}">
+              <div class="card card-statistics">
+                <div class="card-body ">
+                  <div class="clearfix">
+                    <div class="float-left">
+                      <i class="fas fa-chart-pie fa-2x icon-lg"></i>
+                    </div>
+                    <div class="float-right">
+                      <p class="mb-0 text-right ">pending</p>
+                      <div class="fluid-container">
+                        <h3 class="font-weight-medium text-right mb-0">{{pending_tasks}}</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text-muted mt-3 mb-0">
+                    <i class="mdi mdi-reload mr-1" aria-hidden="true"></i> All pending tasks
+                  </p>
+                </div>
+              </div>
+              </a>
+            </div>
+          </div>
+  <hr>
+
+  <hr>
+
+   <div class="row">
+
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 grid-margin stretch-card bg-info">
+              <a href="{% url 'tasks_allocated' %}">
+              <div class="card card-statistics">
+                <div class="card-body">
+                  <div class="clearfix">
+                    <div class="float-left">
+                      <i class="fas fa-suitcase fa-2x"></i>
+                    </div>
+                    <div class="float-right">
+                      <p class="mb-0 text-right">total tasks Assigned</p>
+                      <div class="fluid-container">
+                        <h3 class="font-weight-medium text-right mb-0">{{total_tasks}}</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text-muted mt-3 mb-0">
+                    <i class="mdi mdi-calendar mr-1" aria-hidden="true"></i> all work assigned
+                  </p>
+                </div>
+              </div>
+              </a>
+            </div>
+
+
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 grid-margin stretch-card bg-info">
+              <a href="{% url 'employees' %}">
+              <div class="card card-statistics">
+                <div class="card-body">
+                  <div class="clearfix">
+                    <div class="float-left">
+                      <i class="fas fa-fw fa-users fa-1x icon-lg"></i>
+                    </div>
+                    <div class="float-right">
+                      <p class="mb-0 text-right">Employees</p>
+                      <div class="fluid-container">
+                        <h3 class="font-weight-medium text-right mb-0">{{total_employees}}</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text-muted mt-3 mb-0">
+                    <i class="mdi mdi-reload mr-1" aria-hidden="true"></i> Employee's Total Count
+                  </p>
+                </div>
+              </div>
+                </a>
+            </div>
+             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 grid-margin stretch-card bg-info">
+              <a href="{% url 'Asset_list' %}">
+              <div class="card card-statistics">
+                <div class="card-body">
+                  <div class="clearfix">
+                    <div class="float-left">
+                      <i class="fas fa-calendar-check icon-lg fa-2x icon-lg"></i>
+                    </div>
+                    <div class="float-right">
+                      <p class="mb-0 text-right">Assets</p>
+                      <div class="fluid-container">
+                        <h3 class="font-weight-medium text-right mb-0">{{assets_total}}</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text-muted mt-3 mb-0">
+                    <i class="mdi mdi-reload mr-1" aria-hidden="true"></i> All assets assigned
+                  </p>
+                </div>
+              </div>
+                </a>
+            </div>
+          </div>
+
+  <style>
+    a{
+    text-decoration:none;
+    }
+  </style>
+
+{% endblock %}
+
+

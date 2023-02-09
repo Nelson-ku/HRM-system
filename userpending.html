@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Pending Tasks</title>
+      <!--css styling -->
+  <link rel="stylesheet" href="{% static './css/main.css'%}">
+
+  <!-- Custom fonts for this template-->
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+
+  <!-- Page level plugin CSS-->
+  <link href="{% static 'vendor/datatables/dataTables.bootstrap4.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="{% static 'css/sb-admin.css' %}" rel="stylesheet">
+
+  <!-- bootstrap css -->
+  <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<style>
+    body{
+    margin:20px;
+    }
+
+</style>
+<body>
+<nav class="navbar fixed-top navbar-light bg-light">
+  <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'index' %}"><h5>Dashboard</h5></a>
+  </div>
+</nav>
+
+    <div class="card card-body">
+        <br>
+        <br>
+        <div class="row justify-content-between">
+            <div class="col">
+              <h4>Pending Work List</h4>
+            </div>
+            <div class="col col-md-1 text-right">
+              <a href="{% url 'task_form' %}" class="btn btn-primary  ">+Add</a>
+            </div>
+
+            <div class="col col-md-1 text-right">
+              <a href="{% url 'Pending-tasks_pdf' %}" class="btn btn-primary  ">Report</a>
+            </div>
+
+        </div>
+
+    </div>
+        <div class="table-settings mb-4">
+            <div class="row align-items-center justify-content-between">
+                <div class="col col-md-6 col-lg-3 col-xl-4">
+<!--                    <form action="{% url 'forms' %}" method="get">-->
+<!--                        <div class="input-group">-->
+<!--                            <span class="input-group-text" id="basic-addon2"><span class="fas fa-search"></span></span>-->
+<!--                            <input type="text" name="search" class="form-control" placeholder="Search">-->
+<!--                        </div>-->
+<!--                    </form>-->
+                </div>
+                <div class="col-4 col-md-2 col-xl-1 pl-md-0 text-right">
+                    <div class="btn-group">
+                        <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="icon icon-sm icon-gray">
+                                <span class="fas fa-cog"></span>
+                            </span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-xs dropdown-menu-right">
+                            <span class="dropdown-item font-weight-bold text-dark">Show</span>
+                            <a class="dropdown-item d-flex font-weight-bold" href="#">10 <span
+                                    class="icon icon-small ml-auto"><span class="fas fa-check"></span></span></a>
+                            <a class="dropdown-item font-weight-bold" href="#">20</a>
+                            <a class="dropdown-item font-weight-bold" href="#">30</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div class="card card-body border-light shadow-sm table-wrapper table-responsive pt-0">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Task_id</th>
+                    <th>Employee Name</th>
+                    <th>employee.id</th>
+                    <th>employee.weekly_task</th>
+                    <th>status</th>
+                    <th>date assigned</th>
+                    {% if request.user.is_staff %}
+                    <th>update</th>
+                    <th>delete</th>
+
+
+                    {% endif %}
+
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Item -->
+                {% for Tasks in pending_tasks %}
+
+                        <tr class="item-row">
+                            <td><span class="font-weight-bold">{{Tasks.id}}</span></td>
+                            <td><span class="font-weight-normal"></span>{{Tasks.customer.name}}</td>
+                            <td><span class="font-weight-normal"></span>{{Tasks.customer.id}}</td>
+                            <td><span class="font-weight-normal"></span>{{Tasks.weekly_task}}</td>
+                            <td><span class="font-weight-normal"></span>{{Tasks.status}}</td>
+                            <td><span class="font-weight-normal"></span>{{Tasks.date_created}}</td>
+                            {% if request.user.is_staff %}
+                            <td ><a class="btn-sm btn-primary" href="{% url 'update_tasks' Tasks.id %}">Update</a></td>
+                            <td ><a class="btn-sm btn-danger" href="{% url 'delete_tasks' Tasks.id %}">Delete</a></td>
+
+
+                           {% endif %}
+                            <td>
+                                <span class="font-weight-bold "></span>
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+         </div>
+
+</body>
+</html>

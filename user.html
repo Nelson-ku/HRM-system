@@ -1,0 +1,139 @@
+{% extends 'accounts/main.html' %}
+{% include 'accounts/sidebar.html' %}
+{% block content %}
+
+
+  <div class="row">
+
+      {% include 'accounts/sidebar.html' %}
+       <div class="col bg-light shadow-sm">
+           <h4>Daily work status </h4>
+
+           <br>
+           <br>
+
+           <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 grid-margin stretch-card bg-info">
+              <a href="{% url 'user-rejected' %}">
+              <div class="card card-statistics">
+                <div class="card-body">
+                  <div class="clearfix">
+                    <div class="float-left">
+                      <i class="fas fa-chart-area fa-2x"></i>
+                    </div>
+                    <div class="float-right">
+                      <p class="mb-0 text-right">Rejected </p>
+                      <div class="fluid-container">
+                        <h3 class="font-weight-medium text-right mb-0">{{rejected_tasks}}</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text-muted mt-3 mb-0">
+                    <i class="mdi mdi-bookmark-outline mr-1" aria-hidden="true"></i> poorly done work
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 grid-margin stretch-card bg-info">
+              <a href="{% url 'user-completed' %}">
+              <div class="card card-statistics">
+                <div class="card-body">
+                  <div class="clearfix">
+                    <div class="float-left">
+                      <i class="fas fa-project-diagram fa-2x "></i>
+                    </div>
+                    <div class="float-right">
+                      <p class="mb-0 text-right">Completed work</p>
+                      <div class="fluid-container">
+                        <h3 class="font-weight-medium text-right mb-0">{{completed_tasks}}</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text-muted mt-3 mb-0">
+                    <i class="mdi mdi-calendar mr-1" aria-hidden="true"></i> work well completed
+                  </p>
+                </div>
+              </div>
+              </a>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 grid-margin stretch-card bg-info ">
+              <a href="{% url 'user-pending' %}">
+              <div class="card card-statistics">
+                <div class="card-body ">
+                  <div class="clearfix">
+                    <div class="float-left">
+                      <i class="fas fa-chart-pie fa-2x icon-lg"></i>
+                    </div>
+                    <div class="float-right">
+                      <p class="mb-0 text-right ">pending</p>
+                      <div class="fluid-container">
+                        <h3 class="font-weight-medium text-right mb-0">{{pending_tasks}}</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text-muted mt-3 mb-0">
+                    <i class="mdi mdi-reload mr-1" aria-hidden="true"></i> All pending tasks
+                  </p>
+                </div>
+              </div>
+              </a>
+            </div>
+
+          </div>
+           <hr>
+           <hr>
+           <hr>
+
+           <h3>Task details</h3>
+
+          <div class="col">
+          <div class="card card-body border-light shadow-sm table-wrapper table-responsive pt-0">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Task id</th>
+                        <th>Employee Name</th>
+                        <th>Employee ID</th>
+                        <th>status</th>
+                        <th>Work Assigned</th>
+                        <th>assigned date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Item -->
+                    {% for Tasks in c_tasks %}
+                            <tr class="item-row">
+                                <td><span class="font-weight-bold">{{Tasks.id}}</span></td>
+                                <td><span class="font-weight-normal"></span>{{Tasks.customer.name}}</td>
+                                <td><span class="font-weight-normal"></span>{{Tasks.customer.id}}</td>
+                                <td><span class="font-weight-normal"></span>{{Tasks.weekly_task}}</td>
+                                <td><span class="font-weight-normal"></span>{{Tasks.status}}</td>
+                                <td><span class="font-weight-normal"></span>{{Tasks.date_created}}</td>
+                                <td>
+                                    <span class="font-weight-bold "></span>
+                                </td>
+                                <td>
+
+                                </td>
+                            </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+             </div>
+     </div>
+           </div>
+
+
+ <div>
+
+    {% endblock %}
+      </div>
+  </div>
+
+<br>
+<br>
+<br>
+
+<h2>Assigned tasks</h2>
+
